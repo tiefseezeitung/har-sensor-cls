@@ -1,0 +1,8 @@
+*.png
+CXT22/Sessions/
+CXT22/Sessions.zip
+*old*
+HA24/data/
+
+*.pyc
+models/__pycache__/
