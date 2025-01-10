@@ -38,7 +38,7 @@ Data was gathered in 2022. It comprises accelerometer, gyroscope and magnetomete
 The file "train_activity_rate.py" is an attempt to estimate, whether a learning interval was including active learning or not. It could also be described as on/off-task learning or (for continuous values) learning activity rate. There are no labels available.
 
 ## WISDM/
-The WISDM dataset is used in the directory classifying-hand-activities/WISDM/wisdm-dataset/ from Gary M. Weiss:
+The WISDM dataset is placed in the directory har-sensor-cls/WISDM/wisdm-dataset/ and is from Gary M. Weiss:
 "Weiss,Gary. (2019). WISDM Smartphone and Smartwatch Activity and Biometrics Dataset . UCI Machine Learning Repository. https://doi.org/10.24432/C5HK59." It includes 18 different full body and hand activities Accelerator and Gyroscope data, for both phone and watch.
 
 Run the python file "extract_data.py" to generate the parquet files used as the input for a model.
