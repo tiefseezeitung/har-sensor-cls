@@ -99,24 +99,12 @@ The dataset in *wisdm-dataset/* is in the same folder structure as it was downlo
 ## models/
 The *models/* directory contains 5 python files with functions for loading different neural network model architectures as Keras models.
 
-models/
-
-├── sequential.py
-
-├── CNN.py 
-
-├── ViT.py 
-
-├── Swin.py
-
-├── CSWin.py
-
 *sequential.py* contains a broader spectrum of models. For the time-series data (3 dimensional sequences) it encompasses a simple LSTM with self-attention, a 2 layered LSTM with self-attention and batch normalization, a simple Transformer and a 1-dimensional CNN. It also contains a simple Feedforward model, for receiving the 1-dimensional feature arrays (for inputs as features extracted from the time-series data).
 
 *CNN.py* contains a function for building a 2D CNN, which includes a 2 layered convolution block and residual connections. Additionally the file contains *build_CNN_FF()* for building the same CNN model, combined with the Feedforward network as in *sequential.py*.
 
 *ViT.py* contains the function *build_ViT1()* for building a Keras model of a Vision Transformer, including positional embeddings and a class token.
 
-*Swin.py* implements the functionality of a Swin Transformer. It contains 2 different functions for building a Swin model. *build_Swin_orig()* applies PatchMerging after every Transformer block (except the last) as described in the original paper. *build_Swin()* applies **PatchMerging** after two Transformer blocks. Non-shifted and shifted Transformer blocks are always applied in turns and one iteration consists of two Transformer blocks.
+*Swin.py* implements the functionality of a Swin Transformer. It contains 2 different functions for building a Swin model. *build_Swin_orig()* applies **PatchMerging** after every Transformer block (except the last) as described in the original paper. *build_Swin()* applies **PatchMerging** after two Transformer blocks. Non-shifted and shifted Transformer blocks are always applied in turns and one iteration consists of two Transformer blocks.
 
 *CSWin.py* implements the functionality of a CSWin Transformer. The function *build_CSWin()* builds and returns the Keras model.
