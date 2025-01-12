@@ -2,6 +2,7 @@
 
 Hand Activity Recognition (HAR) based on sensor data (accelerometer, gyroscope) from the smartphone and smartwatch using different machine learning models. The goal of this project is to classify hand activities (especially related to learning activities).
 
+
 The 3 directories *HA24/*, *CXT22/* and *WISDM/* contain the corresponding dataset and data specific python files, for example for extracting data from the raw data files.
 
 *preprocessings.py*, *split_utils.py*, *load_data.py* and *eval_utils.py* are modular components of the project.
@@ -45,7 +46,9 @@ The data is from a study conducted in 2024 by students of Goethe-Universität Fr
 | 15 | fidgeting | Zappeln |
 
 The dataset is located in a compressed form at *HA24/data.zip*. For recreating the Parquet files in *study24_seq/* and *study24.parquet*, it needs to be unzipped.
+
 The file *extract_data.py* is for reading the original JSON files and saving the metadata, containing activity ID, label, user ID, starttime, endtime and elapsed seconds into a file named *study24.parquet*. At the same time the 3-dimensional sequences are separately saved into Parquet files as well. Once the program is executed, the file *study24.parquet* and the directory *study24_seq/*, containing all sequences, are created. Each of the 255 files have file names <activity_ID>_<user_ID>_<sensor_name>_<activity_name>.parquet.
+
 The file *auxiliary.py* is a module containing a dictionary with English category names and sequence length values for phone / watch. The *data_inspect.py* file can be used for analyzing the *study24.parquet* metadata table and creating queries or statistics. By using the Spyder IDE, the file can be executed block-wise.
 
 ## CXT22/
@@ -64,11 +67,15 @@ The dataset CXT22 contains data gathered by students from Goethe-Universität Fr
  1 	|	 unsure | unsicher |
 
 The dataset can be downloaded from https://hessenbox-a10.rz.uni-frankfurt.de/getlink/fiAkZUUTsKBeAhY3vV46nH/ (password: password). 
+
 The *Sessions/* folder, containing the raw data files, comprises subfolders sorted by user name. Raw data files are JSON files, one for each recorded session. 
 
 The *extract_data.py* file reads in all JSON files one after another, and saves the selfreport as well as the sensor data and time-series data. The two modules *mappings.py*, containing dictionaries and abbreviations for saving data from the session files, and *schemas.py*, containing the schemas used for the Parquet files, are utilized during this process.
+
 Depending on the duration of the session, a different number of rows / samples is saved per file, as for each session interval one row is created. The extracted data is saved into two Parquet files: *sessions_selfreport.parquet* and *sessions_sensory.parquet*.
+
 The sequential data is saved separately into the sessions_seq/ directory analogously to the primary dataset. The files *sessions_notifs.parquet*, containing the number of received notifications, and the *sessions_seq/usage/* directory, containing used apps, were also saved longside, but are not relevant for the examined classification task.
+
 The *data_inspect.py* file can be used for gaining insights of the data by loading the *sessions_selfreport.parquet* and *sessions_sensory.parquet*, and creating queries or statistics. Using the Spyder IDE, the file can be executed block-wise.
 
 ### on/off-task classification
@@ -93,10 +100,15 @@ The dataset in *wisdm-dataset/* is in the same folder structure as it was downlo
 The *models/* directory contains 5 python files with functions for loading different neural network model architectures as Keras models.
 
 models/
+
 ├── sequential.py
+
 ├── CNN.py 
+
 ├── ViT.py 
+
 ├── Swin.py
+
 ├── CSWin.py
 
 *sequential.py* contains a broader spectrum of models. For the time-series data (3 dimensional sequences) it encompasses a simple LSTM with self-attention, a 2 layered LSTM with self-attention and batch normalization, a simple Transformer and a 1-dimensional CNN. It also contains a simple Feedforward model, for receiving the 1-dimensional feature arrays (for inputs as features extracted from the time-series data).
