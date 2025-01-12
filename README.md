@@ -66,7 +66,7 @@ The dataset CXT22 contains data gathered by students from Goethe-Universität Fr
  1 	|  surfing the internet on a tablet | Surfen_am_Tablet |
  1 	|	 unsure | unsicher |
 
-The dataset can be downloaded from https://hessenbox-a10.rz.uni-frankfurt.de/getlink/fiAkZUUTsKBeAhY3vV46nH/ (password: password). 
+The dataset can be downloaded from https://hessenbox-a10.rz.uni-frankfurt.de/getlink/fiPALgmtfpTG7K479vDnVk/ (password: password). 
 
 The *Sessions/* folder, containing the raw data files, comprises subfolders sorted by user name. Raw data files are JSON files, one for each recorded session. 
 
